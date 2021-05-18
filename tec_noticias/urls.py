@@ -7,5 +7,5 @@ app_name = "tec_noticias"
 
 urlpatterns = [
     path('', views.home_page_view, name='home'),
-    path('info', views.info_page_view, name='info'),
+    path('about', views.about_page_view, name='about'),
 ]
