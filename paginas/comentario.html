@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Noticas Tec</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagens/icon.svg" />
+    <link rel="stylesheet" href="../estilos.css">
+    <meta name="description" content="Tec News">
+    <meta name="keywords" content="HTML,Web,Noticias">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <figure class="header_animacao">
+            <img src="../imagens/header_imagem.svg">
+        </figure>
+
+        <figure class="imagemDecorada">
+            <img src="../imagens/imagemCool.jpg">
+        </figure>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="home">Home</a></li>
+                <li>
+                    <a href="#" class="categoria">Categorias </a>
+                    <ul>
+                        <li><a href="appleNews.html" class="apple">Apple</a></li>
+                        <li><a href="linuxNews.html" class="linux">Linux</a></li>
+                        <li><a href="androidNews.html" class="android">Android</a></li>
+                        <li><a href="windowsNews.html" class="windows">Windows</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="others"> Outros </a>
+                    <ul>
+                        <li><a href="comentario.html" class="comments">Comentario</a></li>
+                        <li><a href="adicionar.html" class="sugestNews">Noticia</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding-top: 70px;">
+        <section>
+            <!-- Depois pensar em meter mais perguntas para uma avaliação melhor do site -->
+            <!-- Estilizar melhor...Dedicar mais a isto -->
+            <h1>Comente e deixe-nos felizes!</h1><br>
+            <h3>Dê-nos um comentário sobre o nosso Website de forma a poder-mos sempre melhorar e dar mais prazer de se
+                ver</h3><br>
+            <form oninput="cont.value=parseInt(conteudo.value)" method="post" action="mailto:a21904341@alunos.ulht.pt"
+                id="form1">
+                <fieldset id="field_1">
+                    <legend>
+                        <h3>Dê a sua opinião sobre o Website</h3>
+                    </legend>
+                    <br>
+                    <section class="Form_Estetica">
+                        <label id="pright">Estética :</label>
+                        <input type="radio" name="estetica" id="mtfeio">
+                        <label for="mtfeio" id="pright">1</label>
+                        <input type="radio" name="estetica" id="feio">
+                        <label for="feio" id="pright">2</label>
+                        <input type="radio" name="estetica" id="suf">
+                        <label for="suf" id="pright">3</label>
+                        <input type="radio" name="estetica" id="bom">
+                        <label for="bom" id="pright">4</label>
+                        <input type="radio" name="estetica" id="mtbom">
+                        <label for="mtbom">5</label><br><br>
+                    </section>
+                    <label id="pright">Conteúdo :</label>
+                    <input type="range" name="conteudo" min="0" max="10" required>
+                    <output name="cont">5</output><br><br>
+                    <h4>O site teve em conta as 10 heurísticas de Nielsen? (multi-opções) :
+                    </h4><br>
+                    <section id="regras">
+                        <section>
+                            <input type="checkbox" name="visi">
+                            <label for="visi">Visibilidade do status do sistema</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="corr" id="amplitude">
+                            <label for="corr">Correspondência entre o sistema e o mundo real</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="liberdade" id="logic">
+                            <label for="liberdade">Liberdade e controle do usuário</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="consis" id="signf">
+                            <label for="consis">Consistência e padrões</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="prevenction" id="origin">
+                            <label for="prevenction">Prevenção de erros</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="recognize" id="origin">
+                            <label for="recognize">Reconhecer ao invés de lembrar</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="efici" id="origin">
+                            <label for="efici">Flexibilidade e Eficiência</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="est&design" id="origin">
+                            <label for="est&design">Estética e Design minimalista</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="erros" id="origin">
+                            <label for="erros">Ajude os usuários a reconhecerem, diagnosticarem e recuperarem-se de
+                                erros</label><br>
+                        </section>
+                        <section>
+                            <input type="checkbox" name="help" id="origin">
+                            <label for="help">Ajuda e documentação</label><br><br>
+                        </section>
+                    </section>
+                    <h4>Deixe uma opinião :</h4>
+                    <section class="textArea_form1">
+                        <textarea name="texto"
+                            placeholder="Escreva aqui sugetões de melhoria para o Website"></textarea>
+                    </section>
+                </fieldset>
+                <section class="botoes">
+                    <input type="reset" value="Reset" class="button button2" form="form1">
+                    <input type="submit" value="Enviar" class="button button2" form="form1">
+                </section>
+            </form>
+        </section>
+    </main>
+
+    <aside>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <!-- formulario-->
+        <form>
+            <label>
+                Email para notificações
+                <input type="text">
+            </label><br>
+            <input id="botaoSubmit" type="submit">
+        </form>
+        <figure class="imagemDecorada2">
+            <img src="../imagens/imagemCool2.jpg">
+        </figure>
+        <!-- Mais recentes-->
+        <ul>
+            <p>Noticias mais recentes:</p><br>
+            <li> <a
+                    href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                    Pesquisade imagens windows</a></li>
+            <li> <a
+                    href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                    Historico de atualizacoes</a>
+            </li>
+            <li> <a href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">teste
+                    ferramenta Linux SystemRescueCD</a></li>
+            <li> <a
+                    href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                    Iphone 12 - Iservices
+                </a>
+            </li>
+        </ul>
+
+        </ul>
+        </ul>
+    </aside>
+
+    <footer>
+        <!-- Word cloud-->
+        <svg width="500" height="300">
+            <image href="../imagens/wordcloud.jpg" width="100%" height="100%">
+            </image>
+            <!-- Outras Paginas-->
+            <a href="index.html">
+                <rect x="100" y="53" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+            <a href="../paginas/linuxNews.html">
+                <rect x="100" y="83" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/appleNews.html">
+                <rect x="100" y="120" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/androidNews.html">
+                <rect x="110" y="160" width="95" height="54" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/comentario.html">
+                <rect x="215" y="118" width="25" height="158" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/adicionar.html">
+                <rect x="246" y="149" width="100" height="75" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/windowsNews.html">
+                <rect x="246" y="230" width="108" height="25" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/about.html">
+                <text x="280" y="120" fill="blue">About</text></a>
+        </svg>
+    </footer>
+</body>
+
+</html>

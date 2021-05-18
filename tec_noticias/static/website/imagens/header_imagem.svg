@@ -1,0 +1,12 @@
+<svg width="300" height="110" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <rect transform="rotate(-5 117.95606994628908,61.997737884521555) matrix(0.836725697290286,0,0,4.116001481068194,-52.315041305292816,-463.42430292645923) " id="svg_3" height="9" width="203" y="123.15352" x="101.99693" opacity="0.58" fill-opacity="null" stroke-opacity="null" stroke-dasharray="5,5" stroke-width="0" stroke="#000" fill="#000000" rx="100" filter="url(#svg_3_blur)"/>
+  <text font-style="normal" font-weight="normal" stroke="#000" transform="matrix(3.1300968151668056,0,0,4.4403786057775685,-600.1241752370981,-1064.0309091161635) " xml:space="preserve" text-anchor="start" font-family="'Rounded Mplus 1c Black'" font-size="12" id="svg_2" y="254.91803" x="194.58804" stroke-width="0" fill="#ffffff">TecNewsTuga</text>
+ </g>
+ <defs>
+  <filter id="svg_3_blur">
+   <feGaussianBlur stdDeviation="1.7"/>
+  </filter>
+ </defs>
+</svg>

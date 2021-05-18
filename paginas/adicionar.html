@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Noticas Tec</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagens/icon.svg" />
+    <link rel="stylesheet" href="../estilos.css">
+    <meta name="description" content="Tec News">
+    <meta name="keywords" content="HTML,Web,Noticias">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <style>
+        main {
+            grid-area: main;
+            grid-column: 1 / span 2;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            background-color: white;
+            padding-top: 70px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-overflow: clip;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <figure class="header_animacao">
+            <img src="../imagens/header_imagem.svg">
+        </figure>
+
+        <figure class="imagemDecorada">
+            <img src="../imagens/imagemCool.jpg">
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="home">Home</a></li>
+                <li>
+                    <a href="#" class="categoria">Categorias </a>
+                    <ul>
+                        <li><a href="appleNews.html" class="apple">Apple</a></li>
+                        <li><a href="linuxNews.html" class="linux">Linux</a></li>
+                        <li><a href="androidNews.html" class="android">Android</a></li>
+                        <li><a href="windowsNews.html" class="windows">Windows</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="others"> Outros </a>
+                    <ul>
+                        <li><a href="comentario.html" class="comments">Comentario</a></li>
+                        <li><a href="adicionar.html" class="sugestNews">Noticia</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="paddForm">
+            <h1>Adicionar Noticia</h1>
+            <form id="form1" method="post" action="mailto:a21904341@alunos.ulht.pt">
+                <fieldset id="field_1">
+
+                    <legend>
+                        <h3>Dados Pessoais</h3>
+                    </legend><br>
+                    <table>
+                        <tr>
+                            <td><label id="pright">Nome :</label></td>
+                            <td> <input type="text" name="nome" size="20" autocomplete="off" placeholder="nome" required
+                                    autofocus></td>
+                        </tr>
+
+                        <tr>
+                            <td><label id="pright">Email :</label></td>
+                            <td> <input type="email" name="email" autocomplete="off" placeholder="xxx@gmail.com"
+                                    required autofocus>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <label id="pright">Telemóvel :</label></td>
+                            <td> <input type="tel" name="telemóvel" size="20" placeholder="número">
+                            </td>
+                        </tr>
+
+                    </table>
+                    <br>
+                </fieldset>
+                <br>
+                <br>
+                <fieldset id="field_1">
+                    <legend>
+                        <h3>Campo relativo á noticia</h3>
+                    </legend><br>
+                    <label id="pright"> Tipo : </label>
+                    <input type="radio" name="tipo" id="wind">
+                    <label for="wind" id="pright">Windows</label>
+                    <input type="radio" name="tipo" id="linux">
+                    <label for="linux" id="pright">Linux</label>
+                    <input type="radio" name="tipo" id="android">
+                    <label for="android" id="pright">Android</label>
+                    <input type="radio" name="tipo" id="apple">
+                    <label for="apple">Apple</label><br><br>
+                    <label id="pright">Suporte Visual :</label>
+                    <input type="url" name="url" placeholder="Link(Url)"><br><br>
+                    <h4 style="text-align: left;">Sinopse :</h4>
+                    <section class="textArea_form1">
+                        <textarea name="texto" rows="10" placeholder="Dê um pequeno resumo da noticia" cols="100"
+                            style="height:100px;" required></textarea>
+                    </section>
+                    <br><br>
+                    <h4>Descreva, em 500 palavras, a noticia :</h4>
+                    <section class="textArea_form1">
+                        <textarea name="texto" maxlength="500" rows="10"
+                            placeholder="Seja o mais claro e simples possivel" cols="100" style="height:150px;"
+                            required></textarea>
+                    </section>
+                </fieldset>
+                <section class="botoes">
+                    <input type="reset" value="Reset" class="button button2" form="form1">
+                    <input type="submit" value="Enviar" class="button button2" form="form1">
+                </section>
+            </form>
+        </section>
+    </main>
+
+    <aside>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <!-- formulario-->
+        <form>
+            <label>
+                Email para notificações
+                <input type="text">
+            </label><br>
+            <input id="botaoSubmit" type="submit">
+        </form>
+        <figure class="imagemDecorada2">
+            <img src="../imagens/imagemCool2.jpg">
+        </figure>
+        <!-- Mais recentes-->
+        <ul>
+            <p>Noticias mais recentes:</p><br>
+            <li> <a
+                    href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                    Pesquisade imagens windows</a></li>
+            <li> <a
+                    href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                    Historico de atualizacoes</a>
+            </li>
+            <li> <a href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">teste
+                    ferramenta Linux SystemRescueCD</a></li>
+            <li> <a
+                    href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                    Iphone 12 - Iservices
+                </a>
+            </li>
+        </ul>
+
+        </ul>
+        </ul>
+    </aside>
+
+    <footer>
+        <!-- Word cloud-->
+        <svg width="500" height="300">
+            <image href="../imagens/wordcloud.jpg" width="100%" height="100%">
+            </image>
+            <!-- Outras Paginas-->
+            <a href="index.html">
+                <rect x="100" y="53" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+            <a href="../paginas/linuxNews.html">
+                <rect x="100" y="83" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/appleNews.html">
+                <rect x="100" y="120" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/androidNews.html">
+                <rect x="110" y="160" width="95" height="54" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/comentario.html">
+                <rect x="215" y="118" width="25" height="158" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/adicionar.html">
+                <rect x="246" y="149" width="100" height="75" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/windowsNews.html">
+                <rect x="246" y="230" width="108" height="25" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/about.html">
+                <text x="280" y="120" fill="blue">About</text></a>
+        </svg>
+    </footer>
+</body>
+
+</html>

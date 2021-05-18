@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Noticas Tec</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagens/icon.svg" />
+    <link rel="stylesheet" href="../estilos.css">
+    <meta name="description" content="Tec News">
+    <meta name="keywords" content="HTML,Web,Noticias">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+    <style>
+        aside ul {
+            list-style-type: none;
+            line-height: 20px;
+        }
+
+        aside ul a {
+            display: inline-block;
+            padding: 15px 10px;
+            width: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: rgb(74, 62, 241);
+            border-top: aqua 2px solid;
+        }
+
+        aside ul a:hover {
+            background-color: #69c;
+        }
+
+        #botaoSubmit {
+            width: 330px;
+            height: 25px;
+            border-right: seagreen 2px solid;
+            box-shadow: 2px 2px 5px black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <figure class="header_animacao">
+            <img src="../imagens/header_imagem.svg">
+        </figure>
+
+        <figure class="imagemDecorada">
+            <img src="../imagens/imagemCool.jpg">
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="home">Home</a></li>
+                <li>
+                    <a href="#" class="categoria">Categorias </a>
+                    <ul>
+                        <li><a href="appleNews.html" class="apple">Apple</a></li>
+                        <li><a href="linuxNews.html" class="linux">Linux</a></li>
+                        <li><a href="androidNews.html" class="android">Android</a></li>
+                        <li><a href="windowsNews.html" class="windows">Windows</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="others"> Outros </a>
+                    <ul>
+                        <li><a href="comentario.html" class="comments">Comentario</a></li>
+                        <li><a href="adicionar.html" class="sugestNews">Noticia</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Noticias Windows</h1>
+            <br>
+            <hr>
+            <br>
+            <ul>
+                <article>
+                    <li>
+                        <a
+                            href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">laptop</i><br>
+                                Dica: Como saber o histórico das atualizações do Windows 10 rapidamente
+                            </h2>
+                            <p>Autor: XXX-YYY-ZZZ & Data:27/03/2021</p>
+                            <picture class="imagemDestaque">
+                                <source srcset="../imagens/windows_imagem_phone.jpg" media="(max-width: 600px)">
+                                <source srcset="../imagens/windows_imagem1.jpg" media="(max-width: 1500px)">
+                                <img src="../imagens/windows_imagem1.jpg">
+                            </picture>
+                            <details>
+                                <figcaption>
+                                    <a
+                                        href="https://pplware.sapo.pt/wp-content/uploads/2020/11/pplware_windows_10_huawei_mate_x_pro_1.jpg">
+                                        imagem(referencia)
+                                    </a>
+                                </figcaption>
+                            </details>
+                            <br>
+                            <p>
+                                Ao longo dos anos, e se tudo correr bem, o Windows 10 vai recebendo atualizações.
+                                <br> Estas
+                                trazem as esperadas melhorias e correções de problemas. Claro que associado estão também
+                                as
+                                novidades e funcionalidades melhoradas.
+                            </p>
+                        </a>
+                    </li>
+                </article>
+                <br>
+                <hr>
+                <br>
+
+                <article>
+                    <li>
+                        <a
+                            href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">phone_iphone</i><br>
+                                Pesquisar por imagens no Windows 10? Siga estes passos
+                            </h2>
+                            <p>Autor: XXX-YYY-ZZZ & Data:27/03/2021</p>
+                            <picture class="imagemDestaque">
+                                <source srcset="../imagens/surface_img_phone.jpg" media="(max-width: 600px)">
+                                <source srcset="../imagens/surface_imagem.jpg" media="(max-width: 1500px)">
+                                <img src="../imagens/surface_imagem.jpg">
+                            </picture>
+                            <details>
+                                <figcaption>
+                                    <a
+                                        href="https://pplware.sapo.pt/wp-content/uploads/2020/12/surface_windows_10_arm_1-768x432.jpg">
+                                        imagem(referencia)
+                                    </a>
+                                </figcaption>
+                            </details>
+                            <br>
+                            <p>
+                                Uma das mais recentes permite fazer pesquisas de imagens dentro do Windows 10, sem
+                                instalar
+                                nenhuma app ou outra funcionalidade.<br> Esta é muito simples de usar e muito útil, para
+                                ajudar
+                                o utilizador em qualquer momento.
+                            </p>
+                        </a>
+                    </li>
+                </article>
+            </ul>
+        </section>
+    </main>
+
+    <aside>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <!-- formulario-->
+        <form>
+            <label>
+                Email para notificações
+                <input type="text">
+            </label><br>
+            <input id="botaoSubmit" type="submit">
+        </form>
+
+        <figure class="imagemDecorada2">
+            <img src="../imagens/imagemCool2.jpg">
+        </figure>
+
+        <!-- Mais recentes-->
+        <ul>
+            <p>Noticias mais recentes:</p><br>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                    Pesquisade imagens windows</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                    Historico de atualizacoes</a>
+            </li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">teste
+                    ferramenta Linux SystemRescueCD</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                    Iphone 12 - Iservices
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <!-- Word cloud-->
+        <svg width="500" height="300">
+            <image href="../imagens/wordcloud.jpg" width="100%" height="100%">
+            </image>
+            <!-- Outras Paginas-->
+            <a href="index.html">
+                <rect x="100" y="53" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+            <a href="../paginas/linuxNews.html">
+                <rect x="100" y="83" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/appleNews.html">
+                <rect x="100" y="120" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/androidNews.html">
+                <rect x="110" y="160" width="95" height="54" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/comentario.html">
+                <rect x="215" y="118" width="25" height="158" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/adicionar.html">
+                <rect x="246" y="149" width="100" height="75" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/windowsNews.html">
+                <rect x="246" y="230" width="108" height="25" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/about.html">
+                <text x="280" y="120" fill="blue">About</text></a>
+        </svg>
+    </footer>
+</body>
+
+</html>

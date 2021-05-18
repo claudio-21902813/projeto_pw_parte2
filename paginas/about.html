@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Noticas Tec</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagens/icon.svg" />
+    <meta name="description" content="Tec News">
+    <meta name="keywords" content="HTML,Web,Noticias">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <figure class="header_animacao">
+            <img src="../imagens/header_imagem.svg">
+        </figure>
+
+        <figure class="imagemDecorada">
+            <img src="../imagens/imagemCool.jpg">
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="home">Home</a></li>
+                <li>
+                    <a href="#" class="categoria">Categorias </a>
+                    <ul>
+                        <li><a href="appleNews.html" class="apple">Apple</a></li>
+                        <li><a href="linuxNews.html" class="linux">Linux</a></li>
+                        <li><a href="androidNews.html" class="android">Android</a></li>
+                        <li><a href="windowsNews.html" class="windows">Windows</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="others"> Outros </a>
+                    <ul>
+                        <li><a href="comentario.html" class="comments">Comentario</a></li>
+                        <li><a href="adicionar.html" class="sugestNews">Noticia</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main>
+        <section>
+            <h3>Mapa do website</h3>
+            <hr><br><br>
+
+            <figure class="figura">
+                <source srcset="../imagens/mapaWebsite_phone.png" media="(max-width: 600px)">
+                <source srcset="../imagens/mapaWebsite.png" media="(max-width: 1500px)">
+                <img src="../imagens/mapaWebsite_phone.png">
+                <!-- <a href=""><img src="../imagens/mapaWebsite.png"></a>-->
+            </figure>
+            <br><br>
+            <hr><br><br>
+            <h3>Layouts</h3>
+            <hr><br><br>
+            <section class="layout">
+                <article>
+                    <h4>Para PC foi usado o seguinte exerto do codigo:</h4><br>
+                    @media (min-width: 601px) {<br>
+                    body {<br>
+                    display: grid;<br>
+                    width: 100%;<br>
+                    height: 100%;<br>
+                    grid-template-rows: 150px 5fr 280px;<br>
+                    grid-template-columns: 1fr 1fr;<br>
+                    grid-template-areas:<br>
+                    "header header header"<br>
+                    "main main aside"<br>
+                    "footer footer aside";<br>
+                    }<br>
+                    ...<br>
+                    <figure>
+                        <source srcset="/imagens/menuPc_mobile.png" media="(max-width: 600px)">
+                        <source srcset="/imagens/menuPc.png" media="(max-width: 1500px)">
+                        <img src="../imagens/menuPc.png">
+                    </figure>
+                </article>
+
+                <article>
+                    <h4>Para Mobile foi usado o seguinte exerto do codigo:</h4><br>
+                    @media (max-width: 600px) {<br>
+                    header {<br>
+                    grid-area: header;<br>
+                    display: flex;<br>
+                    flex-direction: column;<br>
+                    align-items: stretch;<br>
+                    background-color: #da532c;<br>
+                    position: fixed;<br>
+                    width: 100%;<br>
+                    }<br>
+                    ...<br>
+                    <figure>
+                        <img src="../imagens/menuMobile.png">
+                    </figure>
+                </article>
+            </section><br><br>
+            <hr><br><br>
+            <h3>Tabela Inventario</h3>
+            <hr><br><br>
+            <section class="div1">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Designação</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Páginas</td>
+                            <td>8</td>
+                        </tr>
+
+                        <tr>
+                            <td>Imagens</td>
+                            <td>20</td>
+                        </tr>
+
+                        <tr>
+                            <td>Links externos(contando as imagens)</td>
+                            <td>21</td>
+                        </tr>
+
+                        <tr>
+                            <td>Videos</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+                            <td>Animações</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section><br><br>
+            <hr><br><br>
+            <h3>Técnicas usadas</h3>
+            <hr><br><br>
+            <section style="overflow-x:auto;">
+                <section class="div3">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Carateristicas</th>
+                                <th>Elementos/técnicas</th>
+                                <th>Exemplos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Layouts</td>
+                                <td>Grid</td>
+                                <td>Foi usado como construção e organização do layout do website</td>
+                            </tr>
+
+                            <tr>
+                                <td>FlexBox</td>
+                                <td>Foi usado para "flexibilizar" conteudos da melhor maneira possivel</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">Responsividade</td>
+                                <td>Para PC</td>
+                                <td>
+                                    <figure>
+                                        <img src="../imagens/menuPc.png">
+                                    </figure>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Para Mobile</td>
+                                <td>
+                                    <figure>
+                                        <img src="../imagens/menuMobile.png">
+                                    </figure>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Seletores</td>
+                                <td>Foram usados os tipos de seletores: universal, tipo, classe, id, pseudo-class,
+                                    pseudo-elemento</td>
+                                <td>Na area de navegação, foi usado o :hover para quando o cursos passar por cima do
+                                    elemento
+                                    , ser possivel mudar a cor de fundo
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Etiquetas</td>
+                                <td>
+                                    <ul>
+                                        <li>main</li>
+                                        <li>header</li>
+                                        <li>article</li>
+                                        <li>footer</li>
+                                        <li>figure</li>
+                                        <li>iframe</li>
+                                        <li>body</li>
+                                        <li>nav</li>
+                                        <li>section</li>
+                                        <li>article</li>
+                                        <li>p,h</li>
+                                    </ul>
+                                </td>
+                                <td rowspan="2">Foram usados em todas as paginas,consoante cada função,
+                                    por exemplo nesta pagina foi usado o elemento Table
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>table</li>
+                                        <li>thead</li>
+                                        <li>tbody</li>
+                                        <li>form</li>
+                                        <li>fieldset</li>
+                                        <li>input</li>
+                                        <li>label</li>
+                                        <li>ul,li,a,aside,svg,image</li>
+                                        <li>figcaptio,caption,legend,br</li>
+                                        <li>hr</li>
+                                        <li>picture</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                        <tr>
+                            <td>Animações</td>
+                            <td>Foram feitas animações usando keyframes que permite "dar vida" a elementos
+                                no website
+                            </td>
+                            <td>Foi usado por exemplo, para dar um zoom no texto quando se passava o cursor,
+                                e tambem na pagina Inicial.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Efeitos</td>
+                            <td>Foram feitos efeitos para estilizar melhor o nosso website
+                            </td>
+                            <td>Na pagina Inicial, quando o cursos passa por cima da imagem, a propria destaca-se pelo
+                                aumento de tamanho e com uma mudança de background.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="3">Requisitos nao funcionais</td>
+                            <td>Sistema Operativo:</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
+                            <td>Servidor:</td>
+                            <td>Heroku</td>
+                        </tr>
+                        <tr>
+                            <td>IDE:</td>
+                            <td>Visual Studio</td>
+                        </tr>
+                    </table>
+                </section>
+            </section><br><br>
+            <hr><br><br>
+            <h3> Video de apresentação</h3>
+            <hr><br><br>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AI20MBH-hXI"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </section>
+        <section class="space"></section>
+
+
+    </main>
+
+
+
+    <aside>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <!-- formulario-->
+        <form>
+            <label>
+                Email para notificações
+                <input type="text">
+            </label><br>
+            <input id="botaoSubmit" type="submit">
+        </form>
+        <figure class="imagemDecorada2">
+            <img src="../imagens/imagemCool2.jpg">
+        </figure>
+        <!-- Mais recentes-->
+        <ul>
+            <p>Noticias mais recentes:</p><br>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                    Pesquisade imagens windows</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                    Historico de atualizacoes</a>
+            </li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">teste
+                    ferramenta Linux SystemRescueCD</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                    Iphone 12 - Iservices
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <!-- Word cloud-->
+        <svg width="500" height="300">
+            <image href="../imagens/wordcloud.jpg" width="100%" height="100%">
+            </image>
+            <!-- Outras Paginas-->
+            <a href="index.html">
+                <rect x="100" y="53" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+            <a href="../paginas/linuxNews.html">
+                <rect x="100" y="83" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/appleNews.html">
+                <rect x="100" y="120" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/androidNews.html">
+                <rect x="110" y="160" width="95" height="54" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/comentario.html">
+                <rect x="215" y="118" width="25" height="158" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/adicionar.html">
+                <rect x="246" y="149" width="100" height="75" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/windowsNews.html">
+                <rect x="246" y="230" width="108" height="25" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/about.html">
+                <text x="280" y="120" fill="blue">About</text></a>
+        </svg>
+    </footer>
+</body>
+
+</html>

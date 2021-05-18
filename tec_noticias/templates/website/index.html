@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tec News">
+    <meta name="keywords" content="HTML,Web,Noticias">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Noticas Tec</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% load static %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'website/imagens/icon.svg' %}" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'website/css/estilos.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <style>
+        #botaoSubmit {
+            width: 330px;
+            height: 25px;
+            border-right: seagreen 2px solid;
+            box-shadow: 2px 2px 5px black;
+        }
+
+        .carrosel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carrosel img {
+            border-right: aqua solid 1px;
+            width: 30%;
+            animation-name: animacaoEspecial;
+            animation-duration: 6s;
+        }
+
+        /* Animacao */
+        @keyframes animacaoEspecial {
+            25% {
+                width: 10%;
+            }
+
+            100% {
+                font-size: 20px;
+                justify-content: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <figure class="header_animacao">
+            {% load static %}
+            <img src="{% static 'website/imagens/header_imagem.svg' %}">
+        </figure>
+
+        <figure class="imagemDecorada">
+            {% load static %}
+            <img src="{% static 'website/imagens/imagemCool.jpg' %}">
+        </figure>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" class="home">Home</a></li>
+                <li>
+                    <a href="#" class="categoria">Categorias </a>
+                    <ul>
+                        <li><a href="paginas/appleNews.html" class="apple">Apple</a></li>
+                        <li><a href="paginas/linuxNews.html" class="linux">Linux</a></li>
+                        <li><a href="paginas/androidNews.html" class="android">Android</a></li>
+                        <li><a href="paginas/windowsNews.html" class="windows">Windows</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="others"> Outros </a>
+                    <ul>
+                        <li><a href="paginas/comentario.html" class="comments">Comentario</a></li>
+                        <li><a href="paginas/adicionar.html" class="sugestNews">Noticia</a></li>
+                    </ul>
+                </li>
+                <li><a href="../paginas/about.html" class="about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <!-- Galeria de imagens-->
+            <picture>
+                <section class="carrosel">
+                    <section>
+                        {% load static %}
+                        <img src="{% static 'website/imagens/galeria/androidGaleria.jpg' %}">
+                        <img src="{% static 'website/imagens/galeria/linux.jpg' %}">
+                        <img src="{% static 'website/imagens/galeria/apple.jpg' %}">
+                    </section>
+                    <br>
+                    <section>
+                        {% load static %}
+                        <img src="{% static 'website/imagens/galeria/windows.jpg' %}">
+                        <img src="{% static 'website/imagens/galeria/ios.jpg' %}">
+                        <img src="{% static 'website/imagens/galeria/ps4.jpg' %}">
+                    </section>
+                </section>
+            </picture>
+        </section>
+
+        <!--
+        <section>
+            <ul>
+                <article>
+                    <li>
+                        <a
+                            href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">phone_iphone</i><br>
+                                Procura um iPhone 12? iServices já vende recondicionados
+                            </h2>
+                            <p>Autor: XXX-YYY-ZZZ & Data:27/03/2021</p>
+                            <br>
+                            <picture class="imagemDestaque">
+                                <source srcset="/imagens/iphone_12_phone.jpg" media="(max-width: 600px)">
+                                <source srcset="/imagens/iphone_12.jpg" media="(max-width: 1500px)">
+                                <img src="imagens/iphone_12.jpg">
+                            </picture>
+                            <details>
+                                <figcaption>
+                                    <a
+                                        href="https://pplware.sapo.pt/wp-content/uploads/2021/03/iphone_12_mini_1-768x432.jpg">
+                                        imagem(referencia)
+                                    </a>
+                                </figcaption>
+                            </details>
+                            <br>
+                            <p>Na iServices já está disponível para venda o novo modelo do iPhone assim como vários
+                                acessórios.<br>
+                                Os
+                                equipamentos são recondicionados, um segmento onde a iServices tem apostado muito nos
+                                últimos &#128513;
+                                anos.<br>
+
+                                É verdade que o equipamento novo não é propriamente barato, mas sendo recondicionado
+                                pode
+                                poupar
+                                sempre<br>
+                                uns trocos ao mesmo tempo que está a ser amigo do ambiente.
+                            </p>
+                        </a>
+                    </li>
+                </article>
+                <br>
+                <hr>
+                <br>
+                <article>
+                    <li>
+                        <a href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">laptop</i><br>
+                                SystemRescueCD 8.0 – O Linux que pode ‘salvar’ o Windows
+                            </h2>
+                            <p>Autor: XXX-YYY-ZZZ & Data:27/03/2021</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/SSxwfnmJ2kw"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <br>
+                            <p>
+                                Já ouviu falar no SystemRescueCD?<br> Não há dúvidas que o Windows é o melhor sistema
+                                operativo
+                                da
+                                atualidade…<br> mas isso não quer dizer que seja perfeito. Apesar do elevado grau de
+                                estabilidade e
+                                suporte, o sistema pode falhar no arranque<br> impossibilitando assim o acesso à
+                                informação
+                                (tais
+                                situações esporádicas também acontecem com o próprio Linux).<br>
+
+                                Nesses momentos nada melhor que ter o SystemRescueCD à mão! Vamos saber quais as
+                                novidades
+                                da
+                                versão 8.0.
+                            </p>
+                        </a>
+                    </li>
+                </article>
+            </ul>
+<<<<<<< HEAD:tec_noticias/templates/website/index.html
+<<<<<<< HEAD:tec_noticias/templates/website/index.html
+        </section>-->
+
+
+        <br>
+        <br>
+=======
+        </section>
+>>>>>>> parent of e6c1d1d... projeto - fix de bugs:index.html
+=======
+        </section>
+>>>>>>> parent of e6c1d1d... projeto - fix de bugs:index.html
+    </main>
+
+    <aside>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <!-- formulario-->
+        <form action="mailto:email@yourdomain.com" method="POST">
+            <label>
+                Email para notificações
+                <input type="text">
+            </label><br>
+            <input id="botaoSubmit" type="submit">
+        </form>
+        <!-- foto estilosa-->
+        <figure class="imagemDecorada2">
+        {% load static %}
+        <img src="{% static 'website/imagens/imagemCool2.jpg' %}">
+        </figure>
+        <!-- Mais recentes-->
+        <ul>
+            <p>Noticias mais recentes:</p><br>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/microsoft/windows/dica-pesquisar-por-imagens-no-windows-10-siga-estes-passos/">
+                    Pesquisade imagens windows</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/truques-dicas/dica-como-saber-o-historico-das-atualizacoes-do-windows-10-rapidamente/">
+                    Historico de atualizacoes</a>
+            </li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/linux/systemrescuecd-8-0-o-linux-que-pode-salvar-o-windows/">teste
+                    ferramenta Linux SystemRescueCD</a></li>
+            <li> <a style="color:white"
+                    href="https://pplware.sapo.pt/smartphones-tablets/procura-um-iphone-12-iservices-ja-vende-recondicionados/">
+                    Iphone 12 - Iservices
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <!-- Word cloud-->
+        <svg width="500" height="300">
+            {% load static %}
+            <img src="{% static 'website/imagens/wordcloud.jpg' %}" width="100%" height="100%">
+            </image>
+            <!-- Outras Paginas-->
+            <a href="index.html">
+                <rect x="100" y="53" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+            <a href="../paginas/linuxNews.html">
+                <rect x="100" y="83" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/appleNews.html">
+                <rect x="100" y="120" width="86" height="22" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/androidNews.html">
+                <rect x="110" y="160" width="95" height="54" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/comentario.html">
+                <rect x="215" y="118" width="25" height="158" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/adicionar.html">
+                <rect x="246" y="149" width="100" height="75" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/windowsNews.html">
+                <rect x="246" y="230" width="108" height="25" style="fill-opacity:0.1" />
+            </a>
+
+            <a href="../paginas/about.html">
+                <text x="280" y="120" fill="blue">About</text></a>
+        </svg>
+    </footer>
+</body>
+
+</html>
