@@ -66,24 +66,18 @@
 
         <nav>
             <ul>
-                <li><a href="index.html" class="home">Home</a></li>
+                <li><a href="{% url 'tec_noticias:home' %}" class="home">Home</a></li>
                 <li>
                     <a href="#" class="categoria">Categorias </a>
                     <ul>
-                        <li><a href="paginas/appleNews.html" class="apple">Apple</a></li>
-                        <li><a href="paginas/linuxNews.html" class="linux">Linux</a></li>
-                        <li><a href="paginas/androidNews.html" class="android">Android</a></li>
-                        <li><a href="paginas/windowsNews.html" class="windows">Windows</a></li>
+                        <li><a href="{% url 'tec_noticias:apple' %}" class="apple">Apple</a></li>
+                        <li><a href="{% url 'tec_noticias:linux' %}" class="linux">Linux</a></li>
+                        <li><a href="{% url 'tec_noticias:windows' %}" class="windows">Windows</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#" class="others"> Outros </a>
-                    <ul>
-                        <li><a href="paginas/comentario.html" class="comments">Comentario</a></li>
-                        <li><a href="paginas/adicionar.html" class="sugestNews">Noticia</a></li>
-                    </ul>
-                </li>
-                <li><a href="../paginas/about.html" class="about">About</a></li>
+                <li><a href="{% url 'tec_noticias:contacto' %}" class="comments">Contactos</a></li>
+                <li><a href="{% url 'tec_noticias:quizz' %}" class="comments">Quizz</a></li>
+                <li><a href="{% url 'tec_noticias:about' %}" class="about">About</a></li>
             </ul>
         </nav>
     </header>
