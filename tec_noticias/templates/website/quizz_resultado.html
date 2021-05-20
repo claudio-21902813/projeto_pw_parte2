@@ -1,0 +1,25 @@
+{% extends 'website/base.html' %}
+
+{% block main %}
+<h3>Resultados</h3>
+<br>
+
+    <p> Pergunta 1 : {{ quizz.p1 }} </p>
+    <p> Pergunta 2 : {{ quizz.p2 }} </p>
+    <p> Pergunta 3 : {{ quizz.p3 }} </p>
+    <p> Pergunta 4 : {{ quizz.p4 }} </p>
+    <p> Pergunta 5 : {{ quizz.p5 }} </p>
+    <p> Pergunta 6 : {{ quizz.p6 }} </p>
+    <p> Pergunta 7 : {{ quizz.p7 }} </p>
+    <p> Pergunta 8 : {{ quizz.p8 }} </p>
+    <p> Pergunta 9 : {{ quizz.p9 }} </p>
+    <p> Pergunta 10: {{ quizz.p10 }} </p>
+
+
+    {% if pontos < 50 %}
+    <p style="color:red;"> 🔵 🔺 Teve {{ pontos }} pontos no total 😢</p>
+    {% else %}
+    <p style="color:green;"> 🔵 🔺 Teve {{ pontos }} pontos no total 😉 😎</p>
+    {% endif %}
+
+{% endblock %}

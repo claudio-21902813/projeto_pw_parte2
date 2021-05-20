@@ -1,0 +1,14 @@
+{% extends 'website/base.html' %}
+
+{% block main %}
+<h3>Editar Contacto</h3>
+
+<form action="{% url 'tec_noticias:edita_contacto' contacto_email %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <a href="{% url 'tec_noticias:home' %}" role="button" class="btn btn-warning">Cancelar</a>
+        <input type="submit" value="Gravar" class="btn btn-success" >
+    </form>
+
+{% endblock %}

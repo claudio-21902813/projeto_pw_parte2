@@ -1,6 +1,247 @@
 {% extends 'website/base.html' %}
 
 {% block main %}
-    <h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+ <main>
+        <section>
+            <h3>Mapa do website</h3>
+            <hr><br><br>
+            <figure class="figura">
+                {% load static %}
+                <source srcset="{% static 'website/imagens/mapaWebsite_phone.png' %}" media="(max-width: 600px)">
+                {% load static %}
+                <source srcset="{% static 'website/imagens/mapaWebsite.png' %}" media="(max-width: 1500px)">
+                {% load static %}
+                <img src="{% static 'website/imagens/mapaWebsite_phone.png' %}">
+                <!-- <a href=""><img src="../imagens/mapaWebsite.png"></a>-->
+            </figure>
+            <br><br>
+            <hr><br><br>
+            <h3>Layouts</h3>
+            <hr><br><br>
+            <section class="layout">
+                <article>
+                    <h4>Para PC foi usado o seguinte exerto do codigo:</h4><br>
+                    @media (min-width: 601px) {<br>
+                    body {<br>
+                    display: grid;<br>
+                    width: 100%;<br>
+                    height: 100%;<br>
+                    grid-template-rows: 150px 5fr 280px;<br>
+                    grid-template-columns: 1fr 1fr;<br>
+                    grid-template-areas:<br>
+                    "header header header"<br>
+                    "main main aside"<br>
+                    "footer footer aside";<br>
+                    }<br>
+                    ...<br>
+                    <figure>
+                        {% load static %}
+                        <source srcset="{% static 'website/imagens/menuPc_mobile.png' %}" media="(max-width: 600px)">
+                        <source srcset="{% static 'website/imagens/menuPc.png' %}" media="(max-width: 1500px)">
+                        <img src="{% static 'website/imagens/menuPc.png' %}">
+                    </figure>
+                </article>
+
+                <article>
+                    <h4>Para Mobile foi usado o seguinte exerto do codigo:</h4><br>
+                    @media (max-width: 600px) {<br>
+                    header {<br>
+                    grid-area: header;<br>
+                    display: flex;<br>
+                    flex-direction: column;<br>
+                    align-items: stretch;<br>
+                    background-color: #da532c;<br>
+                    position: fixed;<br>
+                    width: 100%;<br>
+                    }<br>
+                    ...<br>
+                    <figure>
+                        {% load static %}
+                        <img src="{% static 'website/imagens/menuMobile.png' %}">
+                    </figure>
+                </article>
+            </section><br><br>
+            <hr><br><br>
+            <h3>Tabela Inventario</h3>
+            <hr><br><br>
+            <section class="div1">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Designação</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Páginas</td>
+                            <td>8</td>
+                        </tr>
+
+                        <tr>
+                            <td>Imagens</td>
+                            <td>20</td>
+                        </tr>
+
+                        <tr>
+                            <td>Links externos(contando as imagens)</td>
+                            <td>21</td>
+                        </tr>
+
+                        <tr>
+                            <td>Videos</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+                            <td>Animações</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section><br><br>
+            <hr><br><br>
+            <h3>Técnicas usadas</h3>
+            <hr><br><br>
+            <section style="overflow-x:auto;">
+                <section class="div3">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Carateristicas</th>
+                                <th>Elementos/técnicas</th>
+                                <th>Exemplos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Layouts</td>
+                                <td>Grid</td>
+                                <td>Foi usado como construção e organização do layout do website</td>
+                            </tr>
+
+                            <tr>
+                                <td>FlexBox</td>
+                                <td>Foi usado para "flexibilizar" conteudos da melhor maneira possivel</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">Responsividade</td>
+                                <td>Para PC</td>
+                                <td>
+                                    <figure>
+                                        <img src="../imagens/menuPc.png">
+                                    </figure>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Para Mobile</td>
+                                <td>
+                                    <figure>
+                                        <img src="../imagens/menuMobile.png">
+                                    </figure>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Seletores</td>
+                                <td>Foram usados os tipos de seletores: universal, tipo, classe, id, pseudo-class,
+                                    pseudo-elemento</td>
+                                <td>Na area de navegação, foi usado o :hover para quando o cursos passar por cima do
+                                    elemento
+                                    , ser possivel mudar a cor de fundo
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Etiquetas</td>
+                                <td>
+                                    <ul>
+                                        <li>main</li>
+                                        <li>header</li>
+                                        <li>article</li>
+                                        <li>footer</li>
+                                        <li>figure</li>
+                                        <li>iframe</li>
+                                        <li>body</li>
+                                        <li>nav</li>
+                                        <li>section</li>
+                                        <li>article</li>
+                                        <li>p,h</li>
+                                    </ul>
+                                </td>
+                                <td rowspan="2">Foram usados em todas as paginas,consoante cada função,
+                                    por exemplo nesta pagina foi usado o elemento Table
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>table</li>
+                                        <li>thead</li>
+                                        <li>tbody</li>
+                                        <li>form</li>
+                                        <li>fieldset</li>
+                                        <li>input</li>
+                                        <li>label</li>
+                                        <li>ul,li,a,aside,svg,image</li>
+                                        <li>figcaptio,caption,legend,br</li>
+                                        <li>hr</li>
+                                        <li>picture</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                        <tr>
+                            <td>Animações</td>
+                            <td>Foram feitas animações usando keyframes que permite "dar vida" a elementos
+                                no website
+                            </td>
+                            <td>Foi usado por exemplo, para dar um zoom no texto quando se passava o cursor,
+                                e tambem na pagina Inicial.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Efeitos</td>
+                            <td>Foram feitos efeitos para estilizar melhor o nosso website
+                            </td>
+                            <td>Na pagina Inicial, quando o cursos passa por cima da imagem, a propria destaca-se pelo
+                                aumento de tamanho e com uma mudança de background.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="3">Requisitos nao funcionais</td>
+                            <td>Sistema Operativo:</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
+                            <td>Servidor:</td>
+                            <td>Heroku</td>
+                        </tr>
+                        <tr>
+                            <td>IDE:</td>
+                            <td>Visual Studio</td>
+                        </tr>
+                    </table>
+                </section>
+            </section><br><br>
+            <hr><br><br>
+            <h3> Video de apresentação</h3>
+            <hr><br><br>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AI20MBH-hXI"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </section>
+        <section class="space"></section>
+
+
+    </main>
 {% endblock %}

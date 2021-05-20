@@ -11,12 +11,13 @@ class Contacto(models.Model):
 
 
 class Quizz(models.Model):
-    p1 = models.CharField(max_length=40)
-    p2 = models.CharField(max_length=10)
-    p3 = models.CharField(max_length=40)
-    p4 = models.CharField(max_length=40)
-    p5 = models.CharField(max_length=40)
-    p6 = models.CharField(max_length=40)
+    id = models.AutoField(primary_key=True)
+    p1 = models.CharField(max_length=10)
+    p2 = models.BooleanField()
+    p3 = models.DateField()
+    p4 = models.TimeField()
+    p5 = models.FloatField()
+    p6 = models.TextField()
     p7 = models.CharField(max_length=40)
     p8 = models.CharField(max_length=40)
     p9 = models.CharField(max_length=40)

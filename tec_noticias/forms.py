@@ -9,23 +9,28 @@ class contactForm(ModelForm):
         model = Contacto
         fields = '__all__'
 
-        widgets = {
-            'titulo': forms.TextInput(),
-            'prioridade': forms.TextInput(),
-        }
-
-        labels = {
-            'titulo': 'Título',
-            'concluido': 'Concluída',
-        }
-
 
 class QuizzForm(ModelForm):
     class Meta:
         model = Quizz
         fields = '__all__'
 
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'p1': 'Considera que a apple tem tendencia a ter melhores noticias por ser uma marca de "luxo"?',
+            'p2': 'Sabe quais sao os autores do website?',
+            'p3': 'Em que data começou PW?',
+            'p4': 'E a hora?',
+            'p5': 'pi / 2? - com 2 casas decimais',
+            'p6': 'Comente o quiz ate agora ( este nao conta !)',
+            'p7': 'O Website e de noticias ou de anuncios?',
+            'p8': 'Foi Baseado no sapo.pt?',
+            'p9': 'Gosta das aulas de PW??',
+            'p10': 'Programação ou Gestão de Projetos??',
+        }
+
         widgets = {
-            'Questao1': forms.TextInput(),
-            'p2': forms.TextInput(),
+            'p1': forms.TextInput(attrs={'placeholder': ''}),
+            'p3': forms.DateInput(attrs={'placeholder': 'yyyy-mm-dd'}),
+            'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm:ss'}),
         }

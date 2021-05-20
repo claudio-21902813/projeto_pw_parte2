@@ -5,8 +5,18 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p  }}
         <input type="submit" value="Gravar" class="btn btn-success" >
     </form>
+
+
+    <p>Lista De Contactos:</p>
+    {% for contacto in contactos %}
+        <p>
+           {{ contacto.nome }}
+           <a href="{% url 'tec_noticias:edita_contacto' contacto.email %}" class="btn btn-warning">Editar</a>
+           <a href="{% url 'tec_noticias:apaga_contacto' contacto.email %}" role="button" class="btn btn-danger">Apagar</a>
+        </p>
+   {% endfor %}
 
 {% endblock %}
