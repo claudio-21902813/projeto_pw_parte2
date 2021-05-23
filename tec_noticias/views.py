@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-import matplotlib as plt # Graficos
+import matplotlib.pyplot as plt # Graficos
 
 # Create your views here.
 from django.urls import reverse
@@ -221,13 +221,13 @@ def comentario_resultado(request,id):
         form.save()
         return HttpResponseRedirect(reverse('tec_noticias:home'))
 
-    plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
-                                                                      ,comments.campo4,comments.campo5,
-                                            ''+ str(comments.campo6),comments.campo7,comments.campo8,comments.campo9,comments.campo10])
-    plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
+    #plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
+     #                                                                 ,comments.campo4,comments.campo5,
+    #                                        ''+ str(comments.campo6),comments.campo7,comments.campo8,comments.campo9,comments.campo10])
+    #plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
 
 
-    context = {'form': form,'grafico':plt}
+    context = {'form': form}
     return render(request, 'website/coments_result.html', context)
 
 def edita_contacto(request, email):
