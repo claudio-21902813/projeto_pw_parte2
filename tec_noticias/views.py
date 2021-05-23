@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-import matplotlib.pyplot as plt # Graficos
+import matplotlib as plt # Graficos
 
 # Create your views here.
 from django.urls import reverse
