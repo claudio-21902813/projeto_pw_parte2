@@ -16,6 +16,11 @@
     <p> Pergunta 10: {{ quizz.p10 }} </p>
 
 
+    <figure>
+    {% load static %}
+       <img src="{% static 'website/imagens/plot.png' %}">
+    </figure>
+
     {% if pontos < 50 %}
     <p style="color:red;"> 🔵 🔺 Teve {{ pontos }} pontos no total 😢</p>
     {% else %}

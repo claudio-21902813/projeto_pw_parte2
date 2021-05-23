@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'website/base.html' %}
 
-</body>
-</html>
+{% block main %}
+<h3>Noticias Apple</h3>
+    {% for ntc in titulos %}
+        <ul>
+                     <li>
+                        <a>
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">{{ ntc.tipo }}</i><br>
+                               {{ ntc.nome }}
+                            </h2>
+                            <p>{{ ntc.Autor }}</p>
+                            <br>
+                            <figure>
+                              <img src={{ntc.img}} style="width:50%">
+                            </figure>
+                            <br>
+                            <p>{{ ntc.Descrição }}
+                            </p>
+                        </a>
+                    </li>
+               {% endfor %}
+        </ul>
+{% endblock %}

@@ -34,3 +34,25 @@ class QuizzForm(ModelForm):
             'p3': forms.DateInput(attrs={'placeholder': 'yyyy-mm-dd'}),
             'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm:ss'}),
         }
+
+class ComentarioForm(ModelForm):
+    class Meta:
+        model = Comentario
+        fields = '__all__'
+
+        labels = {
+            'campo1': 'Nome',
+            'campo2': 'Idade',
+            'campo3': 'O website é visualmente atrativo?',
+            'campo4':"Cumpre boas praticas de UI/UX?",
+            'campo5':'Email?',
+            'campo6':'A tablete de Cores condiz',
+            'campo7':'O website cumpre as 10 normas de Nielsen?',
+            'campo8':'Encontrou algum Bug Grafico ou funcional?',
+            'campo9': 'O website tem muitos erros ortográficos?',
+            'campo10':'Construtivamente, Aponte o que achou de errado e sugestões de melhoria'
+        }
+
+
+
+

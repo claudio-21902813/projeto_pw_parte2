@@ -17,4 +17,6 @@ urlpatterns = [
     path('windows:noticias',views.windows_page_view,name='windows'),
     path('linux:noticias',views.linux_page_view,name='linux'),
     path('about', views.about_page_view, name='about'),
+    path('comentario',views.comentario_page_view,name='comentario'),
+    path('comentario_resultados/<int:id>',views.comentario_resultado,name='comentario_resultado')
 ]

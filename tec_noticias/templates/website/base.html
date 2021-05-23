@@ -11,7 +11,7 @@
     {% load static %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'website/imagens/icon.svg' %}" />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'website/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
@@ -69,24 +69,32 @@
             <ul>
                 <li>
                     <a href="{% url 'tec_noticias:home' %}" class="home">
-                        <i class="fa fa-home" style="font-size:24px;"></i>
+                        <i class="fa fa-home fa-pulse" style="font-size:24px;"></i>
                         Home</a></li>
                 <li>
                     <a href="#" class="categoria">
-                          <i class="fa fa-newspaper-o" style="font-size:24px;"></i>
+                          <i class="fa fa-newspaper-o fa-pulse" style="font-size:24px;"></i>
                         Categorias </a>
                     <ul>
-                        <li><a href="{% url 'tec_noticias:apple' %}" class="apple">Apple</a></li>
-                        <li><a href="{% url 'tec_noticias:linux' %}" class="linux">Linux</a></li>
-                        <li><a href="{% url 'tec_noticias:windows' %}" class="windows">Windows</a></li>
+                        <li><a href="{% url 'tec_noticias:apple' %}" class="apple">
+                            <i class="fa fa-apple" style="font-size:24px;"></i>
+                            Apple</a></li>
+                        <li><a href="{% url 'tec_noticias:linux' %}" class="linux">
+                             <i class="fa fa-linux" style="font-size:24px;"></i>
+                            Linux</a></li>
+                        <li><a href="{% url 'tec_noticias:windows' %}" class="windows">
+                             <i class="fa fa-windows" style="font-size:24px;"></i>
+                            Windows</a></li>
                     </ul>
                 </li>
                 <li><a href="{% url 'tec_noticias:contacto' %}" class="comments">
-                     <i class="fa fa-address-book-o" style="font-size:24px;"></i>Contactos</a></li>
+                     <i class="fa fa-address-book-o fa-spin" style="font-size:24px;"></i>Contactos</a></li>
                 <li><a href="{% url 'tec_noticias:quizz' %}" class="comments">
-                    <i class="fa fa-check-square-o" style="font-size:24px;"></i>Quizz</a></li>
+                    <i class="fa fa-check-square-o fa-pulse" style="font-size:24px;"></i>Quizz</a></li>
+                <li><a href="{% url 'tec_noticias:comentario' %}" class="comments">
+                    <i class="fa fa-commenting fa-spin" style="font-size:24px;"></i>Comentarios</a></li>
                 <li><a href="{% url 'tec_noticias:about' %}" class="about">
-                    <i class="fa fa-info-circle" style="font-size:24px;"></i>About</a></li>
+                    <i class="fa fa-info-circle fa-pulse" style="font-size:24px;"></i>About</a></li>
             </ul>
         </nav>
     </header>
@@ -106,6 +114,29 @@
                 </section>
             </picture>
         </section>
+
+        <section>
+    {% for ntc in titulos %}
+        </section>
+        <ul>
+                     <li>
+                        <a>
+                            <h2>
+                                <i class="material-icons" style="font-size:36px">{{ ntc.tipo }}</i><br>
+                               {{ ntc.nome }}
+                            </h2>
+                            <p>{{ ntc.Autor }}</p>
+                            <br>
+                            <figure>
+                              <img src={{ntc.img}} style="width:50%">
+                            </figure>
+                            <br>
+                            <p>{{ ntc.Descrição }}
+                            </p>
+                        </a>
+                    </li>
+               {% endfor %}
+        </ul>
         <!--
         <section>
             <ul>

@@ -23,3 +23,19 @@ class Quizz(models.Model):
     p9 = models.CharField(max_length=40)
     p10 = models.CharField(max_length=40)
 
+class Comentario(models.Model):
+    id = models.AutoField(primary_key=True)
+    campo1 = models.CharField(max_length=20)
+    campo2 = models.IntegerField(default=20)
+    campo3 = models.CharField(max_length=20)
+    campo4 = models.CharField(max_length=20)
+    campo5 = models.EmailField(max_length=40)
+    campo6 = models.BooleanField()
+    campo7 = models.CharField(max_length=20)
+    campo8 = models.CharField(max_length=20)
+    campo9 = models.CharField(max_length=20)
+    campo10 = models.TextField(max_length=20)
+
+    def __str__(self):
+        return "Nome: " + self.campo1 +  " Idade: " + str(self.campo2) + " Email: " + self.campo5
+

@@ -4,3 +4,4 @@ from .models import  *
 
 admin.site.register(Contacto)
 admin.site.register(Quizz)
+admin.site.register(Comentario)
