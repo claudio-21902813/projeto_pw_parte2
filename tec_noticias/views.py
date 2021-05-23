@@ -220,10 +220,10 @@ def comentario_resultado(request,id):
         form.save()
         return HttpResponseRedirect(reverse('tec_noticias:home'))
 
-    #plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
-     #                                                                 ,comments.campo4,comments.campo5,
-    #                                        ''+ str(comments.campo6),comments.campo7,comments.campo8,comments.campo9,comments.campo10])
-    #plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
+    plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
+                                                                  ,comments.campo4,comments.campo5,''+ str(comments.campo6)
+                                                        ,comments.campo7,comments.campo8,comments.campo9,comments.campo10])
+    plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
 
 
     context = {'form': form}
@@ -324,9 +324,7 @@ def quizz_resultado(request,id):
         lista_pontos.append(0)
 
 
-    #plt.bar(['p1','p2','p3','p4','p5','p7','p8','p9','p10'],lista_pontos)
-    plt.plot([1, 2, 3, 4])
-    plt.ylabel('some numbers')
+    plt.bar(['p1','p2','p3','p4','p5','p7','p8','p9','p10'],lista_pontos)
     plt.savefig('tec_noticias/static/website/imagens/plot.png',bbox_inches='tight')
 
 
