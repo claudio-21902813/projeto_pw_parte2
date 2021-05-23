@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-import matplotlib.pyplot as plt # Graficos
+#import matplotlib.pyplot as plt # Graficos
 
 # Create your views here.
 from django.urls import reverse
@@ -325,9 +325,9 @@ def quizz_resultado(request,id):
         lista_pontos.append(0)
 
 
-    plt.bar(['p1','p2','p3','p4','p5','p7','p8','p9','p10'],lista_pontos)
-    plt.savefig('tec_noticias/static/website/imagens/plot.png',bbox_inches='tight')
+    #plt.bar(['p1','p2','p3','p4','p5','p7','p8','p9','p10'],lista_pontos)
+    #plt.savefig('tec_noticias/static/website/imagens/plot.png',bbox_inches='tight')
 
 
-    context = {'quizz': quizz,'pontos':pontos,'grafico':plt}
+    context = {'quizz': quizz,'pontos':pontos}
     return render(request, 'website/quizz_resultado.html', context)
