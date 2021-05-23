@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt # Graficos
 from django.urls import reverse
 
 from .forms import *
-from .models import Contacto,Quizz
+from .models import *
 
 
 def home_page_view(request):
@@ -227,7 +227,7 @@ def comentario_resultado(request,id):
     plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
 
 
-    context = {'form': form,'plt':plt}
+    context = {'form': form,'grafico':plt}
     return render(request, 'website/coments_result.html', context)
 
 def edita_contacto(request, email):
