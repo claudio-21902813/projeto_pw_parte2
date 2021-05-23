@@ -8,6 +8,7 @@ django = "*"
 gunicorn = "*"
 whitenoise = "*"
 environs = {version = "==8.0.0", extras = ["django"]}
+matplotlib = "*"
 
 [dev-packages]
 
