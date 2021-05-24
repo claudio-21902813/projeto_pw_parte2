@@ -2,21 +2,22 @@
 
 {% block main %}
 <h3>Noticias Linux</h3>
-    {% for ntc in titulos %}
+    {% for ntc in lista_noticias %}
+        </section>
         <ul>
                      <li>
-                        <a>
+                        <a href="{%  url 'tec_noticias:VerNoticia' ntc.id %}">
                             <h2>
-                                <i class="material-icons" style="font-size:36px">{{ ntc.tipo }}</i><br>
-                               {{ ntc.nome }}
+                                <i class="material-icons" style="font-size:36px">{{ ntc.categoria.icon }}</i><br>
+                               {{ ntc.titulo }}
                             </h2>
-                            <p>{{ ntc.Autor }}</p>
+                            <p>{{ ntc.autor }}</p>
                             <br>
                             <figure>
-                              <img src={{ntc.img}} style="width:50%">
+                              <img src={{ntc.imagem}} style="width:50%">
                             </figure>
                             <br>
-                            <p>{{ ntc.Descrição }}
+                            <p>{{ ntc.sinopse }}
                             </p>
                         </a>
                     </li>

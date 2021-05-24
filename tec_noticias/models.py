@@ -39,3 +39,19 @@ class Comentario(models.Model):
     def __str__(self):
         return "Nome: " + self.campo1 +  " Idade: " + str(self.campo2) + " Email: " + self.campo5
 
+
+class Categoria(models.Model):
+    tipo = models.CharField(max_length=10)
+    icon = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.tipo
+
+class Noticia(models.Model):
+    titulo = models.CharField(max_length=90)
+    sinopse = models.CharField(max_length=500)
+    imagem = models.CharField(max_length=100)
+    autor = models.CharField(max_length=50)
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,related_name="categoria")
+    descricao = models.TextField(max_length=1000)
+
