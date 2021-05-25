@@ -67,6 +67,10 @@
 
         <nav>
             <ul>
+                    <li>
+                        <a href="{% url 'tec_noticias:login' %}" class="about">
+                    <i class="fa fa-key" style="font-size:24px;"></i>Fazer Login</a></li>
+
                 <li>
                     <a href="{% url 'tec_noticias:home' %}" class="home">
                         <i class="fa fa-home" style="font-size:24px;"></i>
@@ -141,6 +145,16 @@
     </main>
 
     <aside>
+
+                     {% if request.user.username %}
+                        <h3>ola {{ user.username }}</h3><br>
+                        <button type="button" class="btn btn-danger">
+                            <a href="{% url 'tec_noticias:logout' %}">Logout</a></button><br>
+                        {% else %}
+                        <p>Faço Login sff</p>
+                    {% endif %}
+
+
         <iframe width="350" height="250" src="https://www.youtube.com/embed/hwnP6WSmGhA" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import matplotlib.pyplot as plt
@@ -78,7 +79,8 @@ def ver_noticia(request,id):
     noticia = Noticia.objects.get(pk=id)
 
     context = {
-        'noticia':noticia
+        'noticia':noticia,
+        'comentarios':Comentario_Noticia.objects.all().filter(ntc=id)
     }
     return render(request, 'website/ntc_detalhes.html', context)
 
@@ -202,3 +204,29 @@ def quizz_resultado(request,id):
 
     context = {'quizz': quizz,'pontos':pontos}
     return render(request, 'website/quizz_resultado.html', context)
+
+#login
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(
+                    request,
+                    username=username,
+                    password=password
+        )
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('tec_noticias:home'))
+        else:
+            return render(request, 'website/login.html', {
+                'message': 'Credenciais inválidas! Tente Novamente.'
+            })
+
+    return render(request, 'website/login.html')
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'website/login.html', {
+        'message': 'Logged out'})

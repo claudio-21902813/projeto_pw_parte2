@@ -55,3 +55,22 @@ class Noticia(models.Model):
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,related_name="categoria")
     descricao = models.TextField(max_length=1000)
 
+
+class Comentario_Noticia(models.Model):
+    autor = models.CharField(max_length=100)
+    texto = models.TextField(max_length=500)
+    data = models.DateField()
+    ntc = models.ForeignKey(Noticia,
+                           on_delete=models.CASCADE,
+                           related_name="Noticia"
+                            )
+
+    def __str__(self):
+        return "autor: " + self.autor + " texto: "+ self.texto + \
+        " data: " + str(self.data)
+
+
+
+
+
+

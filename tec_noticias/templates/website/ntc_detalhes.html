@@ -10,4 +10,12 @@
 
     <p style="font-family: Arial, sans-serif, cursive;padding:10px"> {{ noticia.descricao }} </p>
 
+    <h3> Comentarios </h3>
+
+        {% for cmt in comentarios %}
+            <p> {{ cmt }}</p>
+        {% empty %}
+        <p> Nao Existe Comentarios</p>
+        {% endfor %}
+
 {% endblock %}

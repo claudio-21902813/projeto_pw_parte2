@@ -1,0 +1,24 @@
+
+{%  extends 'website/base.html' %}
+
+{% block main %}
+    <h1>Login</h1>
+<form action="{% url 'tec_noticias:login' %}" method="post">
+            {% csrf_token %}
+  <div class="form-group">
+    <label for="user">Username</label>
+    <input type="text" class="table-danger" placeholder="Insira o username..." id="user" name="username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="table-success" placeholder="Insira a Password" id="pwd" name="password">
+  </div>
+    <div class="spinner-border text-danger"></div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+    {% if message %}
+        <div> {{ message }} </div>
+    {% endif %}
+
+{% endblock %}
