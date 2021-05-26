@@ -2,20 +2,34 @@
 
 {% block main %}
 
-    <h2> {{ noticia.titulo }} </h2>
+<h2> {{ noticia.titulo }} </h2>
 
-    <p> Autor : {{ noticia.autor }}  || Categoria: {{ noticia.categoria }} </p>
+<p> Autor : {{ noticia.autor }} || Categoria: {{ noticia.categoria }} </p>
 
-    <img src="{{noticia.imagem}}" style="width:50%">
+<img src="{{noticia.imagem}}" style="width:50%">
 
-    <p style="font-family: Arial, sans-serif, cursive;padding:10px"> {{ noticia.descricao }} </p>
+<p style="font-family: Arial, sans-serif, cursive;padding:10px"> {{ noticia.descricao }} </p>
 
-    <h3> Comentarios </h3>
+<h3> Comentarios </h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col">
+            <input type="text" id="autor" placeholder="Autor..." name="autor">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comentario">Comente</label>
+        <textarea name="texto" class="form-control" id="comentario" rows="5" placeholder="Digite algo Construtivo :)"></textarea>
+    </div>
+    <input type="submit" value="Deixar Comentario" class="btn btn-danger">
+</form>
 
-        {% for cmt in comentarios %}
-            <p> {{ cmt }}</p>
-        {% empty %}
-        <p> Nao Existe Comentarios</p>
-        {% endfor %}
+<h2> Comentarios acerca da Noticia:</h2>
+{% for cmt in comentarios %}
+<p> {{ cmt.autor }} escreveu : {{ cmt.texto }} , em {{ cmt.data }}</p>
+{% empty %}
+<p> Nao Existe Comentarios</p>
+{% endfor %}
 
 {% endblock %}
