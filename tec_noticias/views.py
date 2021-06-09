@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 import matplotlib.pyplot as plt
 # Create your views here.
@@ -7,101 +7,65 @@ from django.urls import reverse
 
 from .forms import *
 from .models import *
+from .data import retornaDados
+
+def index(request):
+    return render(request, "website/home.html")
 
 
-def home_page_view(request):
-    noticias = Noticia.objects.all()
+def section(request, num):
+    if num == "comentario":
+        form = ComentarioForm()
+        context = {
+            'form':form
+        }
+        return render(request,'website/coments.html',context)
+    if num == "quizz":
+        form = QuizzForm()
+        context = {
+            'form':form
+        }
+        return render(request,'website/quizz.html',context)
+    if num == "about":
+        return render(request,'website/about.html')
+    if num == "contactos":
+        form = contactForm()
+        context = {
+            'form': form,
+            'contactos': Contacto.objects.all(),
+        }
+        return render(request,'website/contact.html',context)
+    if num == "login":
+        return render(request,'website/login.html')
+    if num == "home":
+        codigo = "<h1> 😄 💻 📱 Vem Vindo a TecNewsTuga ⚽ 🔥</h1>" \
+        +        "<p> Esperamos que gostem do nosso website " \
+        +         "Feito em Django e em JavaScript usando DOM e outras magias da web....</p> " \
+                  "<p>Espero que gostem do website e da sua estrutura." \
+                  "Se visualizar erros ou falhas, contacte no formulario comentarios..." \
+                  "Esteja sempre informado com a nossa Agencia Noticiaria de Tecnologia !!! </p>"
+        return HttpResponse(codigo)
+    if num == "apple":
+        return HttpResponse("")
+    if num == "linux":
+        return HttpResponse("")
+    if num == "windows":
+        return HttpResponse("")
+    else:
+        raise Http404("No such section")
 
-    context = {
-        'lista_noticias':noticias
-    }
-    return render(request, 'website/base.html',context=context)
-
-def about_page_view(request):
-    return render(request, 'website/about.html')
-
-def apple_page_view(request):
-    noticias = Noticia.objects.all().filter(categoria=3)
-
-    context = {
-        'lista_noticias':noticias
-    }
-    return render(request, 'website/apple_news.html',context=context)
-
-def windows_page_view(request):
-    noticias = Noticia.objects.all().filter(categoria=1)
-
-    context = {
-        'lista_noticias':noticias
-    }
-
-    return render(request, 'website/windows_news.html',context=context)
-
-def linux_page_view(request):
-    noticias = Noticia.objects.all().filter(categoria=2)
-
-    context = {
-        'lista_noticias':noticias
-    }
-    return render(request, 'website/linux_news.html',context=context)
-
-def info_page_view(request):
-    return render(request, 'website/info.html')
-
-def contact_page_view(request):
+def guarda_contacto(request):
     form = contactForm(request.POST or None)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('tec_noticias:home'))
 
-
     context = {
         'form': form,
-        'contactos':Contacto.objects.all(),
+        'contactos': Contacto.objects.all(),
     }
 
-    return render(request, 'website/contact.html',context)
-
-def comentario_page_view(request):
-    form = ComentarioForm(request.POST or None)
-    if form.is_valid():
-        comentario = form.save()
-        return HttpResponseRedirect('comentario_resultados/'+str(comentario.id))
-
-
-    context = {
-        'form': form,
-    }
-
-    return render(request, 'website/coments.html',context)
-
-def ver_noticia(request,id):
-    noticia = Noticia.objects.get(pk=id)
-
-    context = {
-        'noticia':noticia,
-        'comentarios':Comentario_Noticia.objects.all().filter(ntc=id)
-    }
-    return render(request, 'website/ntc_detalhes.html', context)
-
-
-#comentario_resultados
-def comentario_resultado(request,id):
-    comments = Comentario.objects.get(id=id)
-    form = ComentarioForm(request.POST or None, instance=comments)
-
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('tec_noticias:home'))
-
-    plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
-                                                                  ,comments.campo4,comments.campo5,''+ str(comments.campo6)
-                                                        ,comments.campo7,comments.campo8,comments.campo9,comments.campo10])
-    plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
-
-
-    context = {'form': form}
-    return render(request, 'website/coments_result.html', context)
+    return render(request, 'website/contact.html', context)
 
 def edita_contacto(request, email):
     contacto = Contacto.objects.get(email=email)
@@ -117,6 +81,27 @@ def edita_contacto(request, email):
 def apaga_contacto(request, email):
     Contacto.objects.get(email=email).delete()
     return HttpResponseRedirect(reverse('tec_noticias:home'))
+
+
+def comentario_page_view(request):
+    form = ComentarioForm(request.POST or None)
+    if form.is_valid():
+        comentario = form.save()
+        return HttpResponseRedirect('comentario_resultados/'+str(comentario.id))
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'website/coments.html',context)
+
+def comentario_resultado(request,id):
+    comments = Comentario.objects.get(id=id)
+    plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
+                                                                  ,comments.campo4,comments.campo5,''+ str(comments.campo6)
+                                                        ,comments.campo7,comments.campo8,comments.campo9,comments.campo10])
+    plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
+    return render(request, 'website/home.html',context={'visibleQuizz':'none','visible':'block'})
 
 def quizz_view(request):
     form = QuizzForm(request.POST)
@@ -203,9 +188,8 @@ def quizz_resultado(request,id):
 
 
     context = {'quizz': quizz,'pontos':pontos}
-    return render(request, 'website/quizz_resultado.html', context)
+    return render(request, 'website/home.html', context)
 
-#login
 def login_view(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -228,5 +212,8 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'website/login.html', {
+    return render(request, 'website/home.html', {
         'message': 'Logged out'})
+
+def Get_Noticias(request):
+    return HttpResponse(retornaDados())

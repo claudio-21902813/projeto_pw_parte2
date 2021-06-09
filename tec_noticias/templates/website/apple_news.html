@@ -1,26 +1,9 @@
-{% extends 'website/base.html' %}
+<br>
+<h2>PPPP</h2>
 
-{% block main %}
-<h3>Noticias Apple</h3>
-    {% for ntc in lista_noticias %}
-        </section>
-        <ul>
-                     <li>
-                        <a href="{%  url 'tec_noticias:VerNoticia' ntc.id %}">
-                            <h2>
-                                <i class="material-icons" style="font-size:36px">{{ ntc.categoria.icon }}</i><br>
-                               {{ ntc.titulo }}
-                            </h2>
-                            <p>{{ ntc.autor }}</p>
-                            <br>
-                            <figure>
-                              <img src={{ntc.imagem}} style="width:50%">
-                            </figure>
-                            <br>
-                            <p>{{ ntc.sinopse }}
-                            </p>
-                        </a>
-                    </li>
-               {% endfor %}
-        </ul>
-{% endblock %}
+<p>{{dados.Apple}}</p>
+
+
+
+
+

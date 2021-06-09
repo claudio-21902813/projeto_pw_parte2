@@ -7,6 +7,8 @@
     <meta name="keywords" content="HTML,Web,Noticias">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Noticas Tec</title>
+    {% load static %}
+    <script src="{% static 'website/script/singlepage.js' %}"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {% load static %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'website/imagens/icon.svg' %}" />
@@ -17,7 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+     div {display:none; }
+
+
         #botaoSubmit {
             width: 330px;
             height: 25px;
@@ -68,11 +75,11 @@
         <nav>
             <ul>
                     <li>
-                        <a href="{% url 'tec_noticias:login' %}" class="about">
+                        <a data-section="login" class="about">
                     <i class="fa fa-key" style="font-size:24px;"></i>Fazer Login</a></li>
 
                 <li>
-                    <a href="{% url 'tec_noticias:home' %}" class="home">
+                    <a data-section="home" class="home">
                         <i class="fa fa-home" style="font-size:24px;"></i>
                         Home</a></li>
                 <li>
@@ -80,24 +87,24 @@
                           <i class="fa fa-newspaper-o" style="font-size:24px;"></i>
                         Categorias </a>
                     <ul>
-                        <li><a href="{% url 'tec_noticias:apple' %}" class="apple">
+                        <li><a data-section="apple" class="apple">
                             <i class="fa fa-apple" style="font-size:24px;"></i>
                             Apple</a></li>
-                        <li><a href="{% url 'tec_noticias:linux' %}" class="linux">
+                        <li><a data-section="linux" class="linux">
                              <i class="fa fa-linux" style="font-size:24px;"></i>
                             Linux</a></li>
-                        <li><a href="{% url 'tec_noticias:windows' %}" class="windows">
+                        <li><a data-section="windows" class="windows">
                              <i class="fa fa-windows" style="font-size:24px;"></i>
                             Windows</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url 'tec_noticias:contacto' %}" class="comments">
+                <li><a data-section="contactos" class="comments">
                      <i class="fa fa-address-book-o" style="font-size:24px;"></i>Contactos</a></li>
-                <li><a href="{% url 'tec_noticias:quizz' %}" class="comments">
+                <li><a data-section="quizz" class="comments">
                     <i class="fa fa-check-square-o" style="font-size:24px;"></i>Quizz</a></li>
-                <li><a href="{% url 'tec_noticias:comentario' %}" class="comments">
+                <li><a data-section="comentario" class="comments">
                     <i class="fa fa-commenting" style="font-size:24px;"></i>Comentarios</a></li>
-                <li><a href="{% url 'tec_noticias:about' %}" class="about">
+                <li><a data-section="about" class="about">
                     <i class="fa fa-info-circle fa-pulse" style="font-size:24px;"></i>About</a></li>
             </ul>
         </nav>
@@ -105,8 +112,8 @@
 
     <main>
         {% block main %}
+        <!--
         <section>
-            <!-- Galeria de imagens-->
             <picture>
                 <section class="carrosel">
                     <section>
@@ -140,7 +147,7 @@
                         </a>
                     </li>
                {% endfor %}
-        </ul>
+        </ul>-->
         {% endblock main %}
     </main>
 
