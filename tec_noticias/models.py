@@ -1,20 +1,13 @@
-from datetime import datetime
-
 from django.db import models
 
 # Create your models here.
 class Contacto(models.Model):
-    id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=40)
-    apelido = models.CharField(max_length=40)
-    telefone = models.IntegerField()
     email = models.CharField(max_length=40)
-    dataNasc = models.DateField()
-
 
 
     def __str__(self):
-        return f" Nome: {self.nome} email: {self.email}"
+        return self.nome
 
 
 class Quizz(models.Model):

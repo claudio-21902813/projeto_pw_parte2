@@ -1,5 +1,3 @@
-from datetime import date
-
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -79,16 +77,8 @@ def comentario_page_view(request):
 
 def ver_noticia(request,id):
     noticia = Noticia.objects.get(pk=id)
-    form = comentarioNoticiaForm()
-
-    if request.method == "POST":
-        autor = request.POST['autor']
-        texto = request.POST['texto']
-        cnt = Comentario_Noticia(None,autor,texto,date.today(),id)
-        cnt.save()
 
     context = {
-        'form':form,
         'noticia':noticia,
         'comentarios':Comentario_Noticia.objects.all().filter(ntc=id)
     }

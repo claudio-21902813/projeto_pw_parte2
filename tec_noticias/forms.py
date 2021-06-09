@@ -10,11 +10,6 @@ class contactForm(ModelForm):
         fields = '__all__'
 
 
-class comentarioNoticiaForm(ModelForm):
-    class Meta:
-        model = Comentario_Noticia
-        fields = ('autor','texto','data')
-
 class QuizzForm(ModelForm):
     class Meta:
         model = Quizz
