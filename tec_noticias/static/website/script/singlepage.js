@@ -1,12 +1,14 @@
 function showSection(section) {
+    document.querySelector('#fig_quizz').style.display = 'none'; // faz desaparecer o resultado do quizz
+    document.querySelector('#fig_coments').style.display = 'none'; // faz desaparecer o resultado dos comentarios
     document.querySelectorAll('div').forEach(div => {
         div.style.display = 'none';
     });
-         document.querySelector(`#${section}`).style.display = 'block';
+    document.querySelector(`#${section}`).style.display = 'block';
     if(section != "apple" && section != "windows" && section != "linux")
     {
      document.querySelector(`#${section}`).style.display = 'block';
-         fetch(`sections/${section}`)
+     fetch(`sections/${section}`)
     .then(response => response.text())
     .then(text =>
      document.querySelector(`#${section}`).innerHTML = text);
@@ -14,7 +16,6 @@ function showSection(section) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
      // envia pedido GET ao URL
         fetch('getNews')
         // converte a resposta em formato json
@@ -35,7 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 post.className = 'post';
 
                 const a = document.createElement('a');
-                a.href  = "www.google.pt";
+                a.href = "#";
+                a.onclick = function () {
+                            showNews(contents);
+                };
 
 
                 const h1 = document.createElement('h1');
@@ -64,8 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 post.className = 'post';
 
                 const a = document.createElement('a');
-                a.href  = "www.google.pt";
-
+                a.href = "#";
+                a.onclick = function () {
+                            showNews(contents);
+                };
 
                 const h1 = document.createElement('h1');
                 h1.innerHTML = contents['titulo'];
@@ -93,8 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 post.className = 'post';
 
                 const a = document.createElement('a');
-                a.href  = "www.google.pt";
-
+                a.href = "#";
+                a.onclick = function () {
+                            showNews(contents);
+                };
 
                 const h1 = document.createElement('h1');
                 h1.innerHTML = contents['titulo'];
@@ -115,6 +123,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add post to DOM
                 document.querySelector('#linux').append(post);
             };
+
+            function showNews(contents){
+            console.log(contents);
+                document.querySelectorAll('div').forEach(div => {
+                    div.style.display = 'none';
+                });
+                document.querySelector('#conteudo').style.display = 'block';
+                document.querySelector('#noticia_titulo').innerHTML = contents['titulo'];
+                document.querySelector('#noticia_data_autor').innerHTML = "Autor " + contents['autor'] + " Data: " + contents['data'];
+                document.querySelector('#noticia_imagem').src = contents['imagem'];
+                document.querySelector('#noticia_imagem').style.width="50%";
+                document.querySelector('#noticia_imagem').style.height="50%";
+                document.querySelector('#noticia_texto').innerHTML = contents['texto'];
+            }
 
     document.querySelectorAll('a').forEach(button => {
     button.onclick = function() {

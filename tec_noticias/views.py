@@ -1,5 +1,8 @@
+import json
+
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.core import serializers
+from django.http import HttpResponseRedirect, HttpResponse, Http404, JsonResponse
 from django.shortcuts import render
 import matplotlib.pyplot as plt
 # Create your views here.
@@ -10,8 +13,7 @@ from .models import *
 from .data import retornaDados
 
 def index(request):
-    return render(request, "website/home.html")
-
+    return render(request, "website/home.html",context={'quizz_visible': 'none','comment_visible':'none'})
 
 def section(request, num):
     if num == "comentario":
@@ -51,6 +53,10 @@ def section(request, num):
         return HttpResponse("")
     if num == "windows":
         return HttpResponse("")
+    if num == "showQuizzResults":
+        return render(request, "website/home.html", context={'quizz_visible': 'block','pontos':pontos,'comment_visible':'none'})
+    if num == "showCommentsResults":
+        return render(request, "website/home.html",context={'quizz_visible': 'none','comment_visible': 'block'})
     else:
         raise Http404("No such section")
 
@@ -87,108 +93,46 @@ def comentario_page_view(request):
     form = ComentarioForm(request.POST or None)
     if form.is_valid():
         comentario = form.save()
-        return HttpResponseRedirect('comentario_resultados/'+str(comentario.id))
 
-    context = {
-        'form': form,
-    }
+        comments = Comentario.objects.get(id=comentario.id)
+        plt.bar(['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'],
+                [comments.campo1, str(comments.campo2), comments.campo3
+                    , comments.campo4, comments.campo5, '' + str(comments.campo6)
+                    , comments.campo7, comments.campo8, comments.campo9, comments.campo10])
+        plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png', bbox_inches='tight')
 
-    return render(request, 'website/coments.html',context)
-
-def comentario_resultado(request,id):
-    comments = Comentario.objects.get(id=id)
-    plt.bar(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'],[comments.campo1,str(comments.campo2),comments.campo3
-                                                                  ,comments.campo4,comments.campo5,''+ str(comments.campo6)
-                                                        ,comments.campo7,comments.campo8,comments.campo9,comments.campo10])
-    plt.savefig('tec_noticias/static/website/imagens/plot_comentario.png',bbox_inches='tight')
-    return render(request, 'website/home.html',context={'visibleQuizz':'none','visible':'block'})
+        return section(request,'showCommentsResults')
 
 def quizz_view(request):
     form = QuizzForm(request.POST)
     if form.is_valid():
-        qz = form.save()
-        return HttpResponseRedirect('resultado/'+str(qz.id))
+        quizz_form = form.save()
 
-    context = {'form': form}
-    return render(request, 'website/quizz.html', context)
+        quizz = Quizz.objects.get(id=quizz_form.id)
+        global pontos
+        pontos = 0
 
-def quizz_resultado(request,id):
-    quizz = Quizz.objects.get(id=id)
-    form = QuizzForm(request.POST or None, instance=quizz)
+        respostas_recebidas = [quizz.p1, str(quizz.p2), str(quizz.p3), str(quizz.p4), str(quizz.p5),
+                               quizz.p7, quizz.p8, quizz.p9, quizz.p10]
 
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('tec_noticias:home'))
+        respostas_certas = ['nao', False, 'Fev 25,2021', '10:00 p.m.', '1.57', 'noticias', 'nao', 'sim',
+                            'gestao de projetos']
+        lista_pontos = []
 
-    pontos = 0
-
-    lista_pontos = []
-
-    if quizz.p1 == "nao":
-        pontos+=10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
-
-    if quizz.p2 == False:
-        pontos+=10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
-
-
-    if quizz.p3 == "Fev 25,2021":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
-
-
-    if quizz.p4 == "10:00 p.m.":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
-
-
-    if quizz.p5 == 1.57:
         pontos += 20
-        lista_pontos.append(20)
-    else:
-        lista_pontos.append(0)
-
-    if quizz.p7 == "noticias":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
+        for i in range(0, len(respostas_recebidas)):
+            if respostas_recebidas[i] == respostas_certas[i]:
+                lista_pontos.append(10)
+                pontos += 10
+            else:
+                lista_pontos.append(0)
 
 
-    if quizz.p8 == "nao":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
+        plt.bar(['p1', 'p2', 'p3', 'p4', 'p5', 'p7', 'p8', 'p9', 'p10'], lista_pontos)
+        plt.savefig('tec_noticias/static/website/imagens/plot.png', bbox_inches='tight')
 
-    if quizz.p9 == "sim":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
+        return section(request,'showQuizzResults')
 
-    if quizz.p10 == "Gestão de Projetos":
-        pontos += 10
-        lista_pontos.append(10)
-    else:
-        lista_pontos.append(0)
-
-
-    plt.bar(['p1','p2','p3','p4','p5','p7','p8','p9','p10'],lista_pontos)
-    plt.savefig('tec_noticias/static/website/imagens/plot.png',bbox_inches='tight')
-
-
-    context = {'quizz': quizz,'pontos':pontos}
-    return render(request, 'website/home.html', context)
 
 def login_view(request):
     if request.method == "POST":
