@@ -11,6 +11,7 @@ from django.urls import reverse
 from .forms import *
 from .models import *
 from .data import retornaDados
+from datetime import date
 
 def index(request):
     comentarioForm = Comentario_Noticia()
@@ -165,3 +166,31 @@ def logout_view(request):
 def Get_Noticias(request):
     data = list(Noticia.objects.values())
     return JsonResponse(data,safe = False)
+
+def Get_Comentario_Noticias(request,id):
+    data = list(Comentario_Noticia.objects.filter(ntc=id).values())
+    return JsonResponse(data,safe = False)
+
+
+def postarComentarios(request):
+    if request.method == 'POST':
+
+        id = request.POST.get('id')
+        nome = request.POST.get('nome')
+        texto = request.POST.get('texto')
+
+        today = date.today()
+        data = today.strftime('%Y-%m-%d')
+
+        ntc = Comentario_Noticia(ntc=Noticia(id=id),autor=nome,texto=texto,data=data)
+        ntc.save()
+
+        return HttpResponse(
+            "Comentario criado com sucesso !!",
+            content_type="application/json"
+        )
+    else:
+        return HttpResponse(
+            json.dumps({"nothing to see": "this isn't happening"}),
+            content_type="application/json"
+        )

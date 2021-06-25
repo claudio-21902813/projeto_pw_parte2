@@ -17,4 +17,6 @@ urlpatterns = [
     path('login/', views.login_view, name="login"),
     path('logout', views.logout_view, name="logout"),
     path('getNews/',views.Get_Noticias,name="getNews"),
+    path('PostarComentario/',views.postarComentarios),
+    path('devolveComentarios/<int:id>',views.Get_Comentario_Noticias)
 ]
