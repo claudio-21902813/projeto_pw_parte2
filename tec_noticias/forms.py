@@ -10,6 +10,11 @@ class contactForm(ModelForm):
         fields = '__all__'
 
 
+class comentarioNoticiaForm(ModelForm):
+    class Meta:
+        model = Comentario_Noticia
+        fields = ('autor','texto','data')
+
 class QuizzForm(ModelForm):
     class Meta:
         model = Quizz
@@ -31,8 +36,8 @@ class QuizzForm(ModelForm):
 
         widgets = {
             'p1': forms.TextInput(attrs={'placeholder': ''}),
-            'p3': forms.DateInput(attrs={'placeholder': 'yyyy-mm-dd'}),
-            'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm:ss'}),
+            'p3': forms.DateTimeInput(attrs={'placeholder': 'yyyy:mm:dd'}),
+            'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm'}),
         }
 
 class ComentarioForm(ModelForm):

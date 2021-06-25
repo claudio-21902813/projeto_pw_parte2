@@ -13,7 +13,8 @@ from .models import *
 from .data import retornaDados
 
 def index(request):
-    return render(request, "website/home.html",context={'quizz_visible': 'none','comment_visible':'none'})
+    comentarioForm = Comentario_Noticia()
+    return render(request, "website/home.html",context={'quizz_visible': 'none','comment_visible':'none','comentaForm':comentarioForm})
 
 def section(request, num):
     if num == "comentario":
@@ -115,7 +116,7 @@ def quizz_view(request):
         respostas_recebidas = [quizz.p1, str(quizz.p2), str(quizz.p3), str(quizz.p4), str(quizz.p5),
                                quizz.p7, quizz.p8, quizz.p9, quizz.p10]
 
-        respostas_certas = ['nao', False, 'Fev 25,2021', '10:00 p.m.', '1.57', 'noticias', 'nao', 'sim',
+        respostas_certas = ['nao', False, '2021-05-19', '10:00', '1.57', 'noticias', 'nao', 'sim',
                             'gestao de projetos']
         lista_pontos = []
 
@@ -157,7 +158,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request, 'website/home.html', {
-        'message': 'Logged out'})
+        'message': 'Logged out',
+        'quizz_visible': 'none',
+        'comment_visible':'none'})
 
 def Get_Noticias(request):
-    return HttpResponse(retornaDados())
+    data = list(Noticia.objects.values())
+    return JsonResponse(data,safe = False)

@@ -16,14 +16,15 @@ function showSection(section) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
      // envia pedido GET ao URL
         fetch('getNews')
         // converte a resposta em formato json
         .then(response => response.json())
         .then(data => {
-            data.Apple.forEach(add_post_apple);
-            data.Windows.forEach(add_post_windows);
-            data.Linux.forEach(add_post_linux);
+            data.forEach(add_post_apple);
+            data.forEach(add_post_windows);
+            data.forEach(add_post_linux);
         })
         // Apanha erros e mostra-os na consola
         .catch(error => {
@@ -31,14 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
        function add_post_apple(contents) {
-                // create a List
+       if(contents.categoria_id == 3)
+       {
                 const post = document.createElement('ul');
                 post.className = 'post';
 
                 const a = document.createElement('a');
                 a.href = "#";
                 a.onclick = function () {
-                            showNews(contents);
+                   showNews(contents);
                 };
 
 
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 h1.innerHTML = contents['titulo'];
 
                 const p = document.createElement('p');
-                p.innerHTML = "Autor: " + contents['autor'] +  "  Data: " + contents['data'];
+                p.innerHTML = "Autor: " + contents['autor'];
 
                 const image = document.createElement('img');
                 image.src = contents['imagem'];
@@ -60,10 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Add post to DOM
                 document.querySelector('#apple').append(post);
+       }
             };
 
                    function add_post_windows(contents) {
-                // create a List
+                if(contents.categoria_id == 1)
+                {
                 const post = document.createElement('ul');
                 post.className = 'post';
 
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 h1.innerHTML = contents['titulo'];
 
                 const p = document.createElement('p');
-                p.innerHTML = "Autor: " + contents['autor'] +  "  Data: " + contents['data'];
+                p.innerHTML = "Autor: " + contents['autor'];
 
                 const image = document.createElement('img');
                 image.src = contents['imagem'];
@@ -91,11 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Add post to DOM
                 document.querySelector('#windows').append(post);
+                }
             };
 
                    function add_post_linux(contents) {
-                // create a List
-                const post = document.createElement('ul');
+                if(contents.categoria_id == 2)
+                {
+                                const post = document.createElement('ul');
                 post.className = 'post';
 
                 const a = document.createElement('a');
@@ -108,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 h1.innerHTML = contents['titulo'];
 
                 const p = document.createElement('p');
-                p.innerHTML = "Autor: " + contents['autor'] +  "  Data: " + contents['data'];
+                p.innerHTML = "Autor: " + contents['autor'];
 
                 const image = document.createElement('img');
                 image.src = contents['imagem'];
@@ -122,20 +128,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Add post to DOM
                 document.querySelector('#linux').append(post);
+                }
             };
 
             function showNews(contents){
-            console.log(contents);
                 document.querySelectorAll('div').forEach(div => {
                     div.style.display = 'none';
                 });
+
                 document.querySelector('#conteudo').style.display = 'block';
                 document.querySelector('#noticia_titulo').innerHTML = contents['titulo'];
-                document.querySelector('#noticia_data_autor').innerHTML = "Autor " + contents['autor'] + " Data: " + contents['data'];
+                document.querySelector('#noticia_data_autor').innerHTML = "Autor " + contents['autor'];
                 document.querySelector('#noticia_imagem').src = contents['imagem'];
                 document.querySelector('#noticia_imagem').style.width="50%";
                 document.querySelector('#noticia_imagem').style.height="50%";
-                document.querySelector('#noticia_texto').innerHTML = contents['texto'];
+                document.querySelector('#noticia_texto').innerHTML = contents['descricao'];
             }
 
     document.querySelectorAll('a').forEach(button => {
