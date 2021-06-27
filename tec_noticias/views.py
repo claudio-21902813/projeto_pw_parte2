@@ -186,7 +186,7 @@ def postarComentarios(request):
         ntc.save()
 
         return HttpResponse(
-            "Comentario criado com sucesso !!",
+            status=204,
             content_type="application/json"
         )
     else:

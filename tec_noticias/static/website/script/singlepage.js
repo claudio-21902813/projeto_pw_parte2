@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             function showNews(contents){
+            document.querySelector('#Comment').innerHTML = '';
                     id = contents['id'];
                 document.querySelectorAll('div').forEach(div => {
                     div.style.display = 'none';
@@ -154,9 +155,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 success : function(json) {
                 if(json.length > 0){
-                json.forEach(add_comments);
+                for(let data in json){
+                    console.log(json[data]);
+                const h1 = document.createElement('li');
+                h1.className = "list-group-item list-group-item-action";
+                h1.innerHTML = json[data].autor +  " escreveu " + json[data].texto;
+                document.querySelector('#Comment').append(h1);
+                }
+                //json.forEach(add_comments);
                 }else{
-                document.querySelector('#Comment').innerHTML = "Vazio !!";
+                document.querySelector('#Comment').innerHTML = "Sem Comentarios !!";
                 }
 
                 },
@@ -176,13 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     create_post(id,nome,texto);
                 });
 
-            function add_comments(contents)
-            {
-                const h1 = document.createElement('li');
-                h1.innerHTML = contents['autor'] +  " escreveu " + contents['texto'];
-                document.querySelector('#Comment').innerHTML = contents['autor'] +  " escreveu " + contents['texto'];
-            }
-
             function create_post(id,nome,texto) {
             console.log("id " + id + " none " + nome + " texto " + texto);
             $.ajax({
@@ -191,15 +192,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 mode:'same-origin',
                 type : "POST",
                 data : { "id": id, "nome":nome,"texto":texto },
-
-                // handle a successful response
                 success : function(json) {
-                    console.log("YESSSSS!!"); // another sanity check
+                const h1 = document.createElement('li');
+                h1.className = "list-group-item list-group-item-action";
+                h1.innerHTML = nome +  " escreveu " + texto;
+                document.querySelector('#Comment').append(h1);
                 },
 
-                // handle a non-successful response
                 error : function(xhr,errmsg,err) {
-                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                console.log(xhr.status + ": " + xhr.responseText);
                 }
             });
         };
