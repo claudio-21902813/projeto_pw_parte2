@@ -109,7 +109,6 @@ def quizz_view(request):
     form = QuizzForm(request.POST)
     if form.is_valid():
         quizz_form = form.save()
-
         quizz = Quizz.objects.get(id=quizz_form.id)
         global pontos
         pontos = 0

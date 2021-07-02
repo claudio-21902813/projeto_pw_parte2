@@ -2,6 +2,8 @@
 
     <form action="{% url 'tec_noticias:quizz' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p}}
         <input type="submit" value="Gravar" class="btn btn-success" >
     </form>
+
+    <br>

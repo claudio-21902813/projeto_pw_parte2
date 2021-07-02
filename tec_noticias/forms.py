@@ -20,6 +20,12 @@ class QuizzForm(ModelForm):
         model = Quizz
         fields = '__all__'
 
+        widgets = {
+            'p1': forms.TextInput(attrs={'required': True}),
+            'p3': forms.DateInput(attrs={'placeholder': 'yyyy:mm:dd'}),
+            'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm'}),
+        }
+
         # texto a exibir junto à janela de inserção
         labels = {
             'p1': 'Considera que a apple tem tendencia a ter melhores noticias por ser uma marca de "luxo"?',
@@ -34,11 +40,7 @@ class QuizzForm(ModelForm):
             'p10': 'Programação ou Gestão de Projetos??',
         }
 
-        widgets = {
-            'p1': forms.TextInput(attrs={'placeholder': ''}),
-            'p3': forms.DateTimeInput(attrs={'placeholder': 'yyyy:mm:dd'}),
-            'p4': forms.TimeInput(attrs={'placeholder': 'hh:mm'}),
-        }
+
 
 class ComentarioForm(ModelForm):
     class Meta:
